@@ -26,7 +26,7 @@ itens.forEach((item) => {
       draggingItem.style.left = `${touch.pageX}px`;
       draggingItem.style.top = `${touch.pageY}px`;
     }
-    event.preventDefault();  // Impede que a tela seja rolada
+    event.preventDefault(); // Impede que a tela seja rolada
   });
 
   item.addEventListener("touchend", (event) => {
@@ -43,67 +43,39 @@ itens.forEach((item) => {
   });
 });
 
-// Adiciona eventos de arrastar ao quarto
-const quarto = document.getElementById("quarto");
-quarto.addEventListener("dragover", (event) => {
+// Adiciona eventos de arrastar ao parque
+const parque = document.getElementById("parque");
+parque.addEventListener("dragover", (event) => {
   event.preventDefault(); // Necessário para permitir o "drop"
 });
 
-quarto.addEventListener("drop", (event) => {
+parque.addEventListener("drop", (event) => {
   event.preventDefault();
   const itemId = event.dataTransfer.getData("item");
   handleDrop(itemId); // Passando o id do item
 });
 
-// Função para tratar o drop e mover o item automaticamente para a posição correta
-// function handleDrop(itemId) {
-  
-//   // Adiciona o item à lista de itens movidos e atualiza a contagem
-//   if (!itensMovidos.includes(itemId)) {
-//     itensMovidos.push(itemId);
-//     tentativas++;
-//   }
-
-//   // Move o item automaticamente para a posição correta
-//   const posicaoCorreta = document.querySelector(`#area-${itemId}`); // Usando a nova identificação da área
-//   if (posicaoCorreta && !posicaoCorreta.classList.contains("completo")) {
-//     posicaoCorreta.textContent = ""; // Limpa a área de destino
-//     posicaoCorreta.classList.add("completo");
-//     const itemElement = document.getElementById(itemId);
-//     const cardItem = itemElement.parentElement;
-//     cardItem.classList.add("hidden")
-//     posicaoCorreta.appendChild(itemElement); // Coloca o item na área correta
-//      // Aplica a classe "grande" para aumentar o tamanho do item
-//      itemElement.classList.add("grande");
-//   }
-
-//   // Verifica se já foram movidos 5 itens
-//   if (tentativas === 5) {
-//     desabilitarItens(); // Desabilita os itens restantes
-//     validarTentativa(); // Valida a tentativa e apresenta a mensagem
-//   }
-// }
-
-
 function handleDrop(itemId) {
-  // Verifica se o item é o celular
+  // Verifica se o item é a antena
   if (itemId === "antena") {
-    // Definindo as áreas onde o celular deve ser colocado
-    const areasDoCelular = ["area-antena1", "area-antena2", "area-antena3"];
+    // Definindo as áreas onde a antena deve ser colocado
+    const areasDaAntena = ["area-antena1", "area-antena2", "area-antena3"];
 
-    // Coloca o celular nas 3 áreas
-    areasDoCelular.forEach(areaId => {
+    // Coloca a antena nas 3 áreas
+    areasDaAntena.forEach((areaId) => {
       const area = document.getElementById(areaId);
 
       // Verifica se a área está disponível para o item
       if (area && !area.classList.contains("completo")) {
-        // Clona o celular para a área
+        // Clona a antena para a área
         const itemElement = document.getElementById("antena");
-        const clonedItem = itemElement.cloneNode(true); // Cria uma cópia do celular
+        const clonedItem = itemElement.cloneNode(true); // Cria uma cópia da antena
         area.textContent = ""; // Limpa a área de destino
         area.classList.add("completo");
-        area.appendChild(clonedItem); // Adiciona o celular na área
+        area.appendChild(clonedItem); // Adiciona a antena na área
         clonedItem.classList.add("grande"); // Aumenta o tamanho do item copiado
+        const cardItem = itemElement.parentElement;
+        cardItem.classList.add("hidden"); // Oculta a antena da lista
       }
     });
   } else {
@@ -133,10 +105,6 @@ function handleDrop(itemId) {
   }
 }
 
-
-
-
-
 // Função para desabilitar os itens após 3 movimentos
 function desabilitarItens() {
   itens.forEach((item) => {
@@ -147,15 +115,15 @@ function desabilitarItens() {
 // Função para validar a tentativa
 function validarTentativa() {
   const itensCorretos = ["antena", "satelite", "garota-notebook"];
-  const estaCorreto = itensCorretos.every((item) => itensMovidos.includes(item));
+  const estaCorreto = itensCorretos.every((item) =>
+    itensMovidos.includes(item)
+  );
 
   if (estaCorreto) {
     mensagem.textContent = "A palavra da sua organização é TESTE 1.";
-    mensagem.style.color = 'green';
+    mensagem.style.color = "green";
   } else {
     mensagem.textContent = "A palavra da sua organização é TESTE 2.";
-    mensagem.style.color = 'red';
+    mensagem.style.color = "red";
   }
 }
-
-

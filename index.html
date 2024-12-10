@@ -1,62 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conexão com Internet</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-
-  <body>
-    <div id="jogo">
-      <p>
-        Monte a estrutura correta para uma conexão via internet, movendo no
-        máximo 3 itens. Escolha com cuidado
-      </p>
-      <div id="parque">
-        <div id="areas">
-          <div id="area-antena1" class="area-drop"></div>
-          <div id="area-antena2" class="area-drop"></div>
-          <div id="area-antena3" class="area-drop"></div>
-          <div id="area-satelite" class="area-drop"></div>
-          <div id="area-garota-notebook" class="area-drop"></div>
-          <div id="area-poste" class="area-drop"></div>
-          <div id="area-funcionario" class="area-drop"></div>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organize o Quarto!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="jogo">
+    <p>Monte a estrutura correta para uma conexão via internet, movendo no máximo 3 itens. Escolha com cuidado</p>
+    <div id="quarto">
+      <div id="areas">
+        <div id="area-antena1" class="area-drop"></div>
+        <div id="area-antena2" class="area-drop"></div>
+        <div id="area-antena3" class="area-drop"></div>
+        <div id="area-satelite" class="area-drop"></div>
+        <div id="area-garota-notebook" class="area-drop"></div>
+        <div id="area-poste" class="area-drop"></div>
+        <div id="area-funcionario" class="area-drop"></div>
       </div>
-      <div id="itens">
-        <div class="card-item">
-          <div id="antena" class="item-drag item-antena" draggable="true"></div>
-          <span>Antena</span>
-        </div>
-        <div class="card-item">
-          <div
-            id="satelite"
-            class="item-drag item-satelite"
-            draggable="true"
-          ></div>
-          <span>Satélite</span>
-        </div>
-        <div class="card-item">
-          <div
-            id="garota-notebook"
-            class="item-drag item-garota-notebook"
-            draggable="true"
-          ></div>
-          <span>Notebook</span>
-        </div>
-        <div class="card-item">
-          <div id="poste" class="item-drag item-poste" draggable="true"></div>
-          <span>Poste</span>
-        </div>
-        <div class="card-item">
-          <div
-            id="funcionario"
-            class="item-drag item-funcionario"
-            draggable="true"
-          ></div>
-          <span>Instalador de Internet</span>
-        </div>
+    </div>
+    <div id="itens">
+      <div class="card-item">
+        <div id="antena" class="item-drag item-antena" draggable="true"></div>
+        <span>Antena</span>
+      </div>
+      <div class="card-item">
+        <div id="satelite" class="item-drag item-satelite" draggable="true"></div>
+        <span>Satélite</span>
+      </div>
+      <div class="card-item">
+        <div id="garota-notebook" class="item-drag item-garota-notebook" draggable="true"></div>
+        <span>Notebook</span>
+      </div>
+      <div class="card-item">
+        <div id="poste" class="item-drag item-poste" draggable="true"></div>
+        <span>Poste</span>
+      </div>
+      <div class="card-item">
+        <div id="funcionario" class="item-drag item-funcionario" draggable="true"></div>
+        <span>Funcionário da Operadora de Internet</span>
       </div>
       <div id="mensagem"></div>
     </div>
